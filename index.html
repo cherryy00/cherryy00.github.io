@@ -6,8 +6,19 @@
     <title>채린log</title>
     <link rel="stylesheet" href="style/240402.css">
     <script>
-        function search(){
-            alert("검색 결과가 없습니다.");
+        let b = 6
+        let length = b.length;
+
+        let s = 'abcdef';
+        let ch =s[1];
+    </script>
+    <script>
+        function checkID(){
+            let s = document.getElementById("id").value;
+            if(s.length < 6)
+                alert("검색어는 6글자 이상이어야 합니다.");
+            if(s.length >= 6)
+            alert("검색어가 없습니다.");
         }
     </script>
     <script>
@@ -19,17 +30,31 @@
         function submit(){
             alert("의견 제출 감사합니다 !");
         }
-    </script> 
+    </script>  
 </head>
 <body>
     <header>
         <br>
         <h1>🐱채린 log ₍՞◌′ᵕ‵ू◌₎🐱</h1>
-        <textarea name="feedback" id="" cols="50"></textarea>&nbsp;
-        <button onclick="search()">검색</button>&nbsp;&nbsp;&nbsp;
+
+        <h2 id='clock'>시계</h2>
+
+        <input type = "text" id ="id" size = 30>
+        <button onclick="checkID()">검색</button>&nbsp;&nbsp;&nbsp;
         <button onclick="good()">좋아요</button><br><br>
         <img id="me" src="images/chaco3.jpg" alt="">
     </header>
+    <script>
+        function setClock() {
+            let now = new Date();
+            let a = '현재 시간<br>' + now.getHours() + '시&nbsp;' + now.getMinutes() + '분&nbsp;' + now.getSeconds() + '초';
+
+            document.getElementById('clock').innerHTML = a;
+
+            setTimeout('setClock()', 1000);
+        }
+        setClock();
+    </script>
     <nav>
         <ul class="hi">
             <br><br><br><br><br><br><br>
@@ -103,7 +128,7 @@
             <input type="radio" name="good" value="badd">불만족<br><br>
         의견을 남겨주세요<br />
         <textarea name="feedback" id="" cols="50"></textarea><br>
-        <button onclick="submit()">좋아요</button><br><br>
+        <button onclick="submit()">제출</button><br><br>
     </footer>
     <img id="top" border="1" src="images/chaco4.jpg" alt="">
 </body>
